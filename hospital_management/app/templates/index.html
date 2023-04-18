@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
 
 <head>
@@ -13,7 +13,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,14 +28,14 @@
 
     <nav class="navbar bg-light navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">App name</a>
+          <a class="navbar-brand" href="/">App name</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ms-center">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Services</a>
@@ -46,11 +46,17 @@
             </ul>
         </div>
         <button type="button" class="btn btn-link">Contact us</button>
-        <a href="login.html"><button type= "button" class="btn btn-primary">Login</button></a>
+        <a href="login"><button type= "button" class="btn btn-primary">Login</button></a>
         </div>
       </nav>
 
     <!-- Home -->
+
+    <div>
+      {% for message in messages %}
+      <h5>{{message}}</h5>
+      {% endfor %}
+    </div>
 
 
     <!--<script src="script.js"></script>-->

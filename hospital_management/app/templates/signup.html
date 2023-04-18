@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,20 +19,20 @@
         rel="stylesheet">
         
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
   </head>
   <body>
     <!-- Header -->
       <nav class="navbar bg-light navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">App name</a>
+          <a class="navbar-brand" href="/">App name</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ms-center">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Services</a>
@@ -43,7 +43,7 @@
             </ul>
         </div>
         <button type="button" class="btn btn-link">Contact us</button>
-        <a href="login.html"><button type= "button" class="btn btn-primary">Login</button></a>
+        <a href="/login/"><button type= "button" class="btn btn-primary">Login</button></a>
         </div>
       </nav>
 
@@ -52,26 +52,35 @@
       <!-- Login From -->
       <div class="form login_form">
         <form action="#">
-          <h2>Login</h2>
+          <h2>Register</h2>
 
+          <div class="input_box">
+            <input type="email" placeholder="email" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input type="phone" placeholder="phone" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
           <div class="input_box">
             <input type="Username" placeholder="Username" required />
             <i class="uil uil-envelope-alt email"></i>
           </div>
           <div class="input_box">
-            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Create password" required />
+           
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" placeholder="Re-Enter password" required />
            
             <i class="uil uil-lock password"></i>
             <i class="uil uil-eye-slash pw_hide"></i>
           </div>
 
-          <div class="option_field">
-            <a href="#" class="forgot_pw">Forgot password?</a>
-          </div>
+          <button class="btn btn-primary" id="Button">Register</button>
 
-          <button class="btn btn-primary">Login Now</button>
-
-          <div class="login_signup">Don't have an account? <a href="signup.html" id="signup">Signup</a></div>
         </form>
       </div>
     </body>
