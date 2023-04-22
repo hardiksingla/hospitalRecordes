@@ -6,7 +6,9 @@ from .models import pno
 
 # Create your views here.
 def homepage(request):
-    return render(request, "index.html")
+    if request.user.is_authenticated:
+        return render(request, "index.html")
+    return redirect("/login")
 
 def login(request):
     if request.method == "POST":
