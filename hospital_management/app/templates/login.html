@@ -23,34 +23,24 @@
   </head>
   <body>
     <!-- Header -->
-      <nav class="navbar bg-light navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">App name</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav ms-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-            </ul>
-        </div>
-        <button type="button" class="btn btn-link">Contact us</button>
+    <nav class="navbar">
+      <div class="navitems">
+        <div class="logo">Logo</div>
+        <ul id="navbarText">
+          <li>About</li>
+          <li>Contact us</li>
+        </ul>
         <a href="../signup/"><button type= "button" class="btn btn-primary">Signup</button></a>
         </div>
       </nav>
 
-    <div class="form_container">
-      <i class="uil uil-times form_close"></i>
-      <!-- Login From -->
-      <div class="form login_form">
+      <div id="bg">
+  
+        <div class="form_container">
+          
+          <i class="uil uil-times form_close"></i>
+          <!-- Login From -->
+          <div class="form login_form">
         <form action="../login/" method="post">
           {% csrf_token %}
           <h2>Login</h2>
@@ -66,18 +56,21 @@
             <i class="uil uil-eye-slash pw_hide"></i>
           </div>
 
-          <div class="option_field">
-            <a href="#" class="forgot_pw">Forgot password?</a>
-          </div>
           <div>
             {% for message in messages %}
             <h5>{{message}}</h5>
             {% endfor %}
           </div>
 
-          <button class="btn btn-primary" id="Button">Login Now</button>
+          <div class="login_button"><button class="btn btn-primary">Login Now</button></div>
+          <div class="option_field">
+            <a href="#" class="forgot_pw">Forgot password?</a>
+          </div>
 
           <div class="login_signup">Don't have an account? <a href="/signup/" id="signup">Signup</a></div>
         </form>
+        </div>
+      </div>
       </div>
     </body>
+  </html>
