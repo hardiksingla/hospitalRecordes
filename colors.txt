@@ -1,0 +1,2 @@
+#fffde7 - light yellow
+#fff8e1 - darker yellow
