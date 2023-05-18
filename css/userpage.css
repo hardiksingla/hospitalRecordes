@@ -63,3 +63,30 @@ body{
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
+.info-page{
+    position: fixed;
+    left: 15%;
+    top: 0;
+    background-image: url('bg_light.jpg');
+    width: 85%;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.entry{
+    margin-left: 40px;
+}
+
+.title{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.btn-primary{
+    background-color: antiquewhite;
+    border-color: antiquewhite;
+    text-emphasis-color: black;
+    --bs-btn-color: black;
+}
