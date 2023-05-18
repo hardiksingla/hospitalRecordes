@@ -83,3 +83,10 @@ body{
   padding: 10px;
 }
 
+.logo_small{
+  height: 50px;
+}
+
+.profile{
+  height: 100px;
+}

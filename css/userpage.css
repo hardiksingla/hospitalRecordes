@@ -57,7 +57,7 @@ body{
     position: fixed;
     left: 15%;
     top: 0;
-    background-image: url('BG.jpg');
+    background-image: url('bg_light.jpg');
     width: 85%;
     height: 100vh;
     background-size: 100% 100%;
