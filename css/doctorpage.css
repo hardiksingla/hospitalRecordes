@@ -9,7 +9,7 @@ body{
     left: 0;
     top: 0;
     height: 100vh;
-    background-color: #fff8e1;
+    background-color: #ffffff;
 }
 
 #logout-button{
@@ -57,7 +57,7 @@ body{
     position: fixed;
     left: 15%;
     top: 0;
-    background-image: url('bg_light.jpg');
+    background-image: url('bg_light_white.jpg');
     width: 85%;
     height: 100vh;
     background-size: 100% 100%;
@@ -85,8 +85,8 @@ body{
 }
 
 .btn-primary{
-    background-color: antiquewhite;
-    border-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
     text-emphasis-color: black;
     --bs-btn-color: black;
 }
