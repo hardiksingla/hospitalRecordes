@@ -14,6 +14,7 @@
     crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/loginpage.css">
+  <link rel="stylesheet" href="css/signupbox.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,20 +46,40 @@
         <form action="#">
           <h2>Register</h2>
 
-          <div class="input_box">
-            <input type="email" placeholder="email" required />
-            <i class="uil uil-envelope-alt email"></i>
+            <div class="input_box" id="hospital-id">
+              <input type="name" placeholder="Hospital id" required />
+            </div>
+
+            <div class="input_box" id="large-input">
+              <input type="name" placeholder="Hospital name" required>
+            </div>
+
+            <div class="input_box" id="hospital-address">
+              <input type="name" placeholder="Hospital address" required>
+            </div>
+          
+          <div class="line1">
+            <div class="input_box" id="phone1">
+              <input type="phone" placeholder="contact no" required />
+            </div>
+            <div class="input_box" id="phone2">
+              <input type="phone" placeholder="alternate contact no"/>            
+            </div>
           </div>
-          <div class="input_box">
-            <input type="phone" placeholder="phone" required />
-            <i class="uil uil-envelope-alt email"></i>
-          </div>
-          <div class="input_box">
+    
+          <div class="input_box" id="large-input">
             <input type="Username" placeholder="Username" required />
-            <i class="uil uil-envelope-alt email"></i>
           </div>
-          <div class="input_box">
-            <input type="password" placeholder="Create password" required />
+          <div class="line1">
+            <div class="input_box" id="email">
+              <input type="email" placeholder="email" required />
+            </div>
+  
+  
+            <div class="input_box" id="password">
+              <input type="password" placeholder="Create password" required />
+
+          </div>
            
             <i class="uil uil-lock password"></i>
             <i class="uil uil-eye-slash pw_hide"></i>
