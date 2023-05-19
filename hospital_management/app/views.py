@@ -4,6 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import pno
 
+
 # Create your views here.
 def homepage(request):
     if request.user.is_authenticated:
@@ -11,10 +12,14 @@ def homepage(request):
     return redirect("/login")
 
 def login(request):
+
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
+        print(username,password)
+        
         user = auth.authenticate(username = username, password = password)
+        print(user)
         if user is not None:
              auth.login(request, user)
              messages.info(request, f"Welcome, {user.username}")
@@ -48,7 +53,9 @@ def signup(request):
         elif password != repass:
             messages.info(request, "Passwords do not match")
             return redirect("/signup")
+
         user = User(username = username, password = password, email = email)
+        user.set_password(password)
         user.save()
         number = pno(user = user, number = number)
         number.save()
