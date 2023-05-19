@@ -1,2 +1,5 @@
+Custom Colors Used- 
+
 #fffde7 - light yellow
 #fff8e1 - darker yellow
+#ffb2b2 - light pink
