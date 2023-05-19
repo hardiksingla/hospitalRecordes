@@ -90,3 +90,14 @@ body{
     text-emphasis-color: black;
     --bs-btn-color: black;
 }
+
+.info-page-doctor{
+    position: fixed;
+    left: 15%;
+    top: 0;
+    background-image: url('bg_light_white.jpg');
+    width: 85%;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
