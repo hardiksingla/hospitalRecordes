@@ -9,7 +9,7 @@ body{
     left: 0;
     top: 0;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #ffb2b2;
 }
 
 #logout-button{
@@ -44,13 +44,15 @@ body{
 }
 
 .navitems li a{
-    color: gray;
+    color: #000;
     text-decoration: none;
 }
 
 .navitems li a:hover{
     cursor: pointer;
-    color: black;
+    color: rgb(255, 255, 255);
+    position: relative;
+    bottom: 5px;
 }
 
 .table-page{
