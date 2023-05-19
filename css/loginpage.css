@@ -68,10 +68,11 @@ body{
   left: 50%;
   transform: translate(-50%, -50%) scale(1.25);
   z-index: 101;
+  border: 2px black;
   background-color: #fff;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.493);
   text-align: center;
 }
 

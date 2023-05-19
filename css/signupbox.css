@@ -6,8 +6,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1.25);
     z-index: 101;
-    
-    backdrop-filter: blur(10px);
+    background-color: #fff;
     padding: 25px;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.1);
