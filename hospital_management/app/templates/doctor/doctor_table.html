@@ -1,0 +1,110 @@
+<!--page through which doctor can see details of patients and button available for seeing full info-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/doctorpage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&family=Ubuntu&display=swap"
+    rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="navitems">
+            <a href="/doctorpage.html"><img src="/doctorlogo.png" alt="" height="100px"></a>
+            <div class="navbar_username"><h2>Doctor Name</h2></div>
+            <ul class="navbar_contents">
+                <li><a href="doctor_table.html">Table</a></li>
+                <li><a href="doctor_new.html">New Patient</a></li>
+                <li><a href="doctor_stats.html">Stats</a></li>
+                <li><a href="doctor_info.html">Doctor info</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="table-page" style="margin-top: 10px; margin-left: 5px;">
+        <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>
+        <h2>Table:</h2>
+        <br>
+        <div class = "table">
+            <div style="width: 100% ;margin-left: 75%; margin-right: 0px;">Search: <input type="search" name="Search" id="" style = "border-radius: 100px;"></div>
+            <br>
+            <table style = "width: 90%; margin : auto; padding: 30px;">
+                <tr style = "font-weight: 600; font-size: larger;">
+                    <td>Patient ID</td>
+                    <td>Name</td>
+                    <td>Last Visit</td>
+                    <td>DOB</td>
+                    <td>Gender</td>
+                    <td>Contact No.</td>
+                    <td>General Diagnosis:</td>
+                    <td>Extra info</td>
+                </tr>
+                <tr>
+                    <td>PT45874</td>
+                    <td>Suneeta Chaturvedi</td>
+                    <td>19/05/2023</td>
+                    <td>19/05/1970</td>
+                    <td>Female</td>
+                    <td>4581254657</td>
+                    <td>Fever,Covid,Kabz</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>PT45164</td>
+                    <td>Rahul Chattrobatty</td>
+                    <td>19/05/2023</td>
+                    <td>29/02/1973</td>
+                    <td>Male</td>
+                    <td>7852254657</td>
+                    <td>Fever,Cold,Diarrohea</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>PT45484</td>
+                    <td>Modi Singla</td>
+                    <td>18/05/2023</td>
+                    <td>19/01/1979</td>
+                    <td>Male</td>
+                    <td>4588754657</td>
+                    <td>Cancer</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>PT78974</td>
+                    <td>Shreyansh Singla</td>
+                    <td>18/05/2023</td>
+                    <td>19/03/1978</td>
+                    <td>Male</td>
+                    <td>7845254657</td>
+                    <td>Testicular Cancer</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>PT15774</td>
+                    <td>Suneel Chaturvedi</td>
+                    <td>18/05/2023</td>
+                    <td>14/04/1989</td>
+                    <td>Male</td>
+                    <td>8974125657</td>
+                    <td>Fever,Covid,Kabz</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
