@@ -18,6 +18,21 @@ body{
     top: 10px;
 }
 
+#logout-button button{
+    background: #ffb2b2;
+    border: none;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    width: 80px;
+}
+
+#logout-button button:hover{
+    background: #c58b8b;
+}
+
 .navitems > img{
     height: 100px;
     width: 100px;
