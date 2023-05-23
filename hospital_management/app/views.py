@@ -91,3 +91,13 @@ def user_info(request):
 
 def doctor(request):
     return render(request,"doctor/doctorpage.html")
+def doctor_info_edit(request):
+    return render(request,"doctor/doctor_info_edit.html")
+def doctor_info(request):
+    return render(request,"doctor/doctor_info.html")
+def doctor_new(request):
+    return render(request,"doctor/doctor_new.html")
+def doctor_stats(request):
+    return render(request,"doctor/doctor_stats.html")
+def doctor_table(request):
+    return render(request,"doctor/doctor_table.html")
