@@ -82,6 +82,22 @@ def user_stats(request):
     return render(request,"hospital/user_stats.html")
 
 def user_new(request):
+    if request.method == "POST":
+
+        name = request.POST["name"]
+        speciality = request.POST["speciality"]
+        degree = request.POST["degree"]
+        username = request.POST["username"]
+        password = request.POST["password"]
+        dob = request.POST["dob"]
+        gender = request.POST["gender"]
+        regNo = request.POST["regNo"]
+
+        user = User(username = username, password = password, email = email)
+        user.set_password(password)
+        user.save()
+        number = pno(user = user, number = number,isDoctor = True)
+        number.save()
     return render(request,"hospital/user_new.html")
 
 def user_info(request):
