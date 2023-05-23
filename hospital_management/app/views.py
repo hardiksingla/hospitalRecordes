@@ -23,7 +23,11 @@ def login(request):
         if user is not None:
              auth.login(request, user)
              messages.info(request, f"Welcome, {user.username}")
-             return redirect("/")
+             if pno.objects.filter(user=user,isDoctor = False).values():
+                return redirect("/userpage")
+             else:
+                return redirect("/doctor")
+            
         elif User.objects.filter(username = username).exists():
             messages.info(request, "Password does not match")
             return redirect("/login")
@@ -57,7 +61,7 @@ def signup(request):
         user = User(username = username, password = password, email = email)
         user.set_password(password)
         user.save()
-        number = pno(user = user, number = number)
+        number = pno(user = user, number = number,isDoctor = False)
         number.save()
         messages.info(request, "Signup successful")
         return redirect("/login")
@@ -67,3 +71,23 @@ def signup(request):
 def logout(request):
     auth.logout(request)
     return redirect("/login")
+
+def userpage(request):
+    return render(request,"hospital/userpage.html")
+
+def user_table(request):
+    return render(request,"hospital/user_table.html")
+
+def user_stats(request):
+    return render(request,"hospital/user_stats.html")
+
+def user_new(request):
+    return render(request,"hospital/user_new.html")
+
+def user_info(request):
+    return render(request,"hospital/user_info.html")
+
+
+
+def doctor(request):
+    return render(request,"doctor/doctorpage.html")

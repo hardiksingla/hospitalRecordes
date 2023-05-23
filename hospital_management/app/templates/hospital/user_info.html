@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&family=Ubuntu&display=swap"
+    rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="navitems">
+
+            <a href="/hospitalRecordes/userpage.html"><img src="/hospitalRecordes/hospitallogo.png" alt="" height="100px"></a>
+
+            <div class="navbar_username"><h2>Hospital Name</h2></div>
+
+            <ul class="navbar_contents">
+                <li><a href="/user_table">Table</a></li>
+                <li><a href="/user_new">New User</a></li>
+                <li><a href="/user_stats">Stats</a></li>
+                <li><a href="/user_info">Hospital info</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="info-page">
+        <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>
+        <h2 class = "title">Hospital Info: </h2>
+        <br>
+        <p class = "entry">ID: </p>
+        <p class = "entry">Name: </p>
+        <p class = "entry">Address: </p>
+        <p class = "entry">Contact No.: </p>
+        <p class = "entry">Email ID: </p>
+        <a id="edit-button" href="" ><button class="btn btn-primary" style="margin-top: 100px; margin-left: 10px;">Edit</button></a>
+    </div>
+</body>
+</html>
