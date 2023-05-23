@@ -1,5 +1,5 @@
 <!--doctor can view his selected info entered by hospital and provides a button through which he can edit some of his info-->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en"><!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="/css/doctorpage.css">
+    <link rel="stylesheet" href="{% static 'css/doctorpage.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,18 +26,18 @@
 <body>
     <div class="navbar">
         <div class="navitems">
-            <a href="/doctorpage.html"><img src="/doctorlogo.png" alt="" height="100px"></a>
+            <a href="/doctorpage"><img src="/doctorlogo.png" alt="" height="100px"></a>
             <div class="navbar_username"><h2>Doctor Name</h2></div>
             <ul class="navbar_contents">
-                <li><a href="doctor_table.html">Table</a></li>
-                <li><a href="doctor_new.html">New Patient</a></li>
-                <li><a href="doctor_stats.html">Stats</a></li>
-                <li><a href="doctor_info.html">Doctor info</a></li>
+                <li><a href="/doctor_table">Table</a></li>
+                <li><a href="/doctor_new">New Patient</a></li>
+                <li><a href="/doctor_stats">Stats</a></li>
+                <li><a href="/doctor_info">Doctor info</a></li>
             </ul>
         </div>
     </div>
     <div class="table-page">
-        <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>
+        <a id="logout-button" href="login.html"><button class="btn btn-primary">Logout</button></a>
     </div>
 </body>
 </html>
@@ -64,19 +64,19 @@
 <body>
     <div class="navbar">
         <div class="navitems">
-            <a href="/doctorpage.html"><img src="/doctorlogo.png" alt="" height="100px"></a>
+            <a href="/doctorpage"><img src="/doctorlogo.png" alt="" height="100px"></a>
             <div class="navbar_username"><h2>Doctor Name</h2></div>
             <ul class="navbar_contents">
-                <li><a href="/doctor/doctor_table.html">Table</a></li>
-                <li><a href="/doctor/doctor_new.html">New Patient</a></li>
-                <li><a href="/doctor/doctor_stats.html">Stats</a></li>
-                <li><a href="/doctor/doctor_info.html">Doctor info</a></li>
+                <li><a href="/doctor_table">Table</a></li>
+                <li><a href="/doctor_new">New Patient</a></li>
+                <li><a href="/doctor_stats">Stats</a></li>
+                <li><a href="/doctor_info">Doctor info</a></li>
             </ul>
         </div>
     </div>
 
     <div class="info-page-doctor">
-        <a id="logout-button" href="/login"><button class="btn btn-primary">Logout</button></a>
+        <a id="logout-button" href="/login.html"><button class="btn btn-primary">Logout</button></a>
         <h2 class = "title">Doctor Info: </h2>
         <br>
         <p class = "entry">ID: </p>
@@ -88,7 +88,7 @@
         <p class = "entry">Speciality: </p>
         <p class = "entry">Degree: </p>
         <p class = "entry">Email ID: </p>
-        <a id="edit-button" href="doctor_info_edit.html" ><button class="btn btn-primary" style="margin-top: 100px; margin-left: 10px;">Edit</button></a>
+        <a id="edit-button" href="/doctor_info_edit" ><button class="btn btn-primary" style="margin-top: 100px; margin-left: 10px;">Edit</button></a>
     </div>
 </body>
 </html>
