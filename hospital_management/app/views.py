@@ -51,7 +51,7 @@ def signup(request):
         elif User.objects.filter(email = email).exists():
             messages.info(request, "Email exists")
             return redirect("/signup")
-        elif pno.objects.filter(number = number).exists():
+        elif pno.objects.filter(number = number).exists() and number<10000000000 and number>-1:
             messages.info(request, "Phone number already registered")
             return redirect("/signup")
         elif password != repass:
