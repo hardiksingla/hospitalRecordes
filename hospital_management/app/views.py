@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import auth
 from django.contrib import messages
-from .models import CustomUser
+from .models import CustomUser, doctorsMore
 
 
 # Create your views here.
@@ -16,15 +16,15 @@ def login(request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-        print(username,password)
         
         user = auth.authenticate(username = username, password = password)
         if user is not None:
-             auth.login(request, user)
-             messages.info(request, f"Welcome, {user.username}")
-             if user.isDoctor == False:
+            auth.login(request, user)
+            messages.info(request, f"Welcome, {user.username}")
+            print(user.type)
+            if user.type == "hospital":
                 return redirect("/userpage")
-             else:
+            else:
                 return redirect("/doctor")
             
         elif CustomUser.objects.filter(username = username).exists():
@@ -82,18 +82,22 @@ def user_new(request):
     if request.method == "POST":
 
         name = request.POST["name"]
+        age = request.POST["age"]
+        dob = request.POST["dob"]
+        pno = request.POST["phone1"]
+        altpno = request.POST["phone2"]
         speciality = request.POST["speciality"]
         degree = request.POST["degree"]
+        email = request.POST["email"]
         username = request.POST["username"]
         password = request.POST["password"]
-        dob = request.POST["dob"]
-        gender = request.POST["gender"]
-        regNo = request.POST["regNo"]
-        email = request.POST["email"]
+        gender = request.POST.get("gender")
 
-        user = CustomUser(username = username, email = email)
+        user = CustomUser(username = username, first_name = name, pno = pno, email = email)
         user.set_password(password)
         user.save()
+        more = doctorsMore(doctor = user, altpno = altpno, speciality = speciality, degree = degree, dob = dob, gender = gender)
+        more.save()
     return render(request,"hospital/user_new.html")
 
 def user_info(request):

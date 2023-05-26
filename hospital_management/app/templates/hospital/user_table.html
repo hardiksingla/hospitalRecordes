@@ -1,4 +1,5 @@
-{% load static %}
+<!--Table page which displays selected info of all the doctors and provides a button to see the complete info of doctor-->
+{%load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,28 +20,157 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&family=Ubuntu&display=swap"
     rel="stylesheet">
     
-    <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+    <link rel="stylesheet" href="{%static '/css/userpage.css' %}">
+
+    <style>
+        .table tr td{
+            padding: 15px 6px;
+        }
+        .table{
+            overflow: scroll;
+        }
+        .table::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
         <div class="navitems">
 
-            <a href="/userpage"><img src="/hospitalRecordes/hospitallogo.png" alt="" height="100px"></a>
+            <a href="/userpage.html"><img src="/hospitallogo.png" alt="" height="100px"></a>
 
             <div class="navbar_username"><h2>Hospital Name</h2></div>
 
             <ul class="navbar_contents">
-                <li><a href="/user_table">Table</a></li>
-                <li><a href="/user_new">New User</a></li>
-                <li><a href="/user_stats">Stats</a></li>
-                <li><a href="/user_info">Hospital info</a></li>
+                <li><a href="user_table.html">Table</a></li>
+                <li><a href="user_new.html">New User</a></li>
+                <li><a href="user_stats.html">Stats</a></li>
+                <li><a href="user_info.html">Hospital info</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="table-page">
-        <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>
-        <h2>this is table page</h2>
+    <div class="table-page" >
+        <a id="logout-button" href="/login.html"><button class="btn btn-primary">Logout</button></a>
+        
+        
+        <div class = "table">
+           <div style="width: 100% ;margin-left: 75%; margin-right: 0px;">Search: <input type="search" name="Search" id="" style = "border-radius: 100px;"></div>
+           <br>
+            <table style = "width: 90%; margin : auto; padding: 30px;">
+                <tr style = "font-weight: 600; font-size: larger;">
+                    <td>Dr.ID</td>
+                    <td>Name</td>
+                    <td>Speciality</td>
+                    <td>DOB</td>
+                    <td>Gender</td>
+                    <td>Contact No.</td>
+                    <td>Notes</td>
+                    <td>Extra info</td>
+                </tr>
+                <tr>
+                    <td>DR12345</td>
+                    <td>Dr. Ramesh Gupta</td>
+                    <td>Surgeon</td>
+                    <td>19/05/1970</td>
+                    <td>Male</td>
+                    <td>7894561234</td>
+                    <td>Bahut bolta hai</td>
+                    <td><a href = "user_table_info.html">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR12318</td>
+                    <td>Dr. Suresh Agarwal</td>
+                    <td>Anaesthetist</td>
+                    <td>17/02/1969</td>
+                    <td>Male</td>
+                    <td>7891541234</td>
+                    <td>Kaam ni karta</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR47518</td>
+                    <td>Dr. Suneeta Agarwal</td>
+                    <td>Gynaecologist</td>
+                    <td>21/03/1999</td>
+                    <td>Female</td>
+                    <td>7456121234</td>
+                    <td>Doosron ko distract karti hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR12318</td>
+                    <td>Dr. Soojal Tiwari</td>
+                    <td>Psychiatrist</td>
+                    <td>25/09/1978</td>
+                    <td>Male</td>
+                    <td>4687542351</td>
+                    <td>Suneeta ko ghoorta hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR74518</td>
+                    <td>Dr. Meena Triwedi</td>
+                    <td>Gynaecologist</td>
+                    <td>25/10/1972</td>
+                    <td>Female</td>
+                    <td>7456242351</td>
+                    <td>Suneeta se jalti hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR74518</td>
+                    <td>Dr. Meena Triwedi</td>
+                    <td>Gynaecologist</td>
+                    <td>25/10/1972</td>
+                    <td>Female</td>
+                    <td>7456242351</td>
+                    <td>Suneeta se jalti hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR74518</td>
+                    <td>Dr. Meena Triwedi</td>
+                    <td>Gynaecologist</td>
+                    <td>25/10/1972</td>
+                    <td>Female</td>
+                    <td>7456242351</td>
+                    <td>Suneeta se jalti hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR74518</td>
+                    <td>Dr. Meena Triwedi</td>
+                    <td>Gynaecologist</td>
+                    <td>25/10/1972</td>
+                    <td>Female</td>
+                    <td>7456242351</td>
+                    <td>Suneeta se jalti hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR74518</td>
+                    <td>Dr. Meena Triwedi</td>
+                    <td>Gynaecologist</td>
+                    <td>25/10/1972</td>
+                    <td>Female</td>
+                    <td>7456242351</td>
+                    <td>Suneeta se jalti hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+                <tr>
+                    <td>DR74518</td>
+                    <td>Dr. Meena Triwedi</td>
+                    <td>Gynaecologist</td>
+                    <td>25/10/1972</td>
+                    <td>Female</td>
+                    <td>7456242351</td>
+                    <td>Suneeta se jalti hai</td>
+                    <td><a href = "#">+</a></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 </html>

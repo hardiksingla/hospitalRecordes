@@ -15,7 +15,7 @@
     crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{% static 'css/doctorpage.css' %}">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&family=Ubuntu&display=swap"
@@ -25,18 +25,18 @@
 <body>
     <div class="navbar">
         <div class="navitems">
-            <a href="/doctorpage"><img src="doctorlogo.png" alt="" height="100px"></a>
+            <a href="/hospitalRecordes/doctorpage.html"><img src="doctorlogo.png" alt="" height="100px"></a>
             <div class="navbar_username"><h2>Doctor Name</h2></div>
             <ul class="navbar_contents">
-                <li><a href="/doctor_table">Table</a></li>
-                <li><a href="/doctor_new">New Patient</a></li>
-                <li><a href="/doctor_stats">Stats</a></li>
-                <li><a href="/doctor_info">Doctor info</a></li>
+                <li><a href="doctor/doctor_table.html">Table</a></li>
+                <li><a href="doctor/doctor_new.html">New Patient</a></li>
+                <li><a href="doctor/doctor_stats.html">Stats</a></li>
+                <li><a href="doctor/doctor_info.html">Doctor info</a></li>
             </ul>
         </div>
     </div>
     <div class="table-page">
-        <a href="/logout"><button type= "button" class="btn btn-primary">Log out</button></a>
+        <a id="logout-button" href="login.html"><button class="btn btn-primary">Logout</button></a>
     </div>
 </body>
 </html>

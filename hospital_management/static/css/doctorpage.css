@@ -18,6 +18,21 @@ body{
     top: 10px;
 }
 
+#logout-button button{
+    background: #ffb2b2;
+    border: none;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    width: 80px;
+}
+
+#logout-button button:hover{
+    background: #c58b8b;
+}
+
 .navitems > img{
     height: 100px;
     width: 100px;
@@ -100,12 +115,12 @@ body{
     margin-left: 10px;
 }
 
-.btn-primary{
+/* .btn-primary{
     background-color: rgb(255, 255, 255);
-    border-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255); 
     text-emphasis-color: black;
     --bs-btn-color: black;
-}
+}  */
 
 .info-page-doctor{
     position: fixed;
@@ -116,4 +131,10 @@ body{
     height: 100vh;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+.table-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
