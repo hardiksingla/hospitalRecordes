@@ -175,3 +175,33 @@ form .button input:hover{
         width: 0;
     }
 }
+
+.profile-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profile-details .entry{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.profile-details .entry .entry-content{
+    border-bottom: 2px solid #ffb2b2;
+    height: 2rem;
+    margin-top: 20px;
+}
+
+#doctor-info-container{
+    max-width: 960px;
+}
+
+.profile-details{
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
+.profile-details::-webkit-scrollbar{
+    width: 0;
+}
