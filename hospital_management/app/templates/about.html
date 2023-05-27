@@ -1,5 +1,5 @@
-<!--1st page to open when opening website, enter username and password to verify user and enter-->
-{% load static %}
+<!--Simple Copy of Login page, contains photos and names of people involved-->
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -15,7 +15,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="{%static 'css/loginpage.css' %}">
+  <link rel="stylesheet" href="css/loginpage.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,13 +28,11 @@
 <body>
   <!-- Header -->
   <nav class="navbar">
-    <div class="navitems" >
+    <div class="navitems">
       <div class="logo"><img src="logo.png" alt="Logo" class = "logo_small"></div>
       <ul id="navbarText">
-        <li><a href="about.html"><button type="button" class="btn">About</button></a></li>
-        <li><a href="contact.html"><button type="button" class="btn">Contact Us</button></a></li>
+        <li><a href="login.html"><button type="button" class="btn">Login/SignUp</button></a></li>
       </ul>
-      <a href="signup.html"><button type="button" class="btn btn-primary">Signup</button></a>
     </div>
   </nav>
 
@@ -46,28 +44,31 @@
         <i class="uil uil-times form_close"></i>
         <!-- Login From -->
         <div class="form login_form">
-          <form action="/login/" method="post">
-            {% csrf_token %}
-            <h2>Login</h2>
-  
-            <div class="input_box">
-              <input type="Username" placeholder="Username" name="username" required />
-              <i class="uil uil-envelope-alt email"></i>
-            </div>
-            <div class="input_box">
-              <input type="password" placeholder="Password" name="password" required />
-             
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-            
-            <div class="login_button"><button class="btn btn-primary">Login Now</button></div>
-            <div class="option_field">
-              <a href="#" class="forgot_pw">Forgot password?</a>
-            </div>
-  
-  
-            <div class="login_signup">D'ont have an account? <a href="signup.html" id="signup">Signup</a></div>
+          <form action="#">
+            <h2>About</h2>
+            <p>This is a Python Group project made by some mad lads.</p>
+            <table>
+                <tr>
+                    <td><img src="photos/Photo1.jpg" alt="" class = "profile"></td>
+                    <td><img src="photos/Photo2.jpg" alt="" class = "profile"></td>
+                    <td><img src="photos/Photo3.jpg" alt="" class = "profile"></td>
+                </tr>
+                <tr>
+                    <td>Anush</td>
+                    <td>Hardik</td>
+                    <td>Rishbh</td>
+                </tr>
+                <tr>
+                    <td><img src="photos/Photo4.jpg" alt="" class = "profile"></td>
+                    <td><img src="photos/Photo5.jpg" alt="" class = "profile"></td>
+                    <td><img src="photos/Photo6.jpg" alt="" class = "profile"></td>
+                </tr>
+                <tr>
+                    <td>Shreyansh</td>
+                    <td>Tarush</td>
+                    <td>Yashita</td>
+                </tr>
+            </table>
           </form>
         </div>
       </div>
