@@ -15,6 +15,7 @@
     crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/css/userpage.css">
+    <link rel="stylesheet" href="/css/infopage.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,17 +42,33 @@
 
     <div class="info-page">
         <a id="logout-button" href="/login.html"><button class="btn btn-primary">Logout</button></a>
-        <div class="container">
-
-            <h2 class = "title">Hospital Info: </h2>
-            <br>
-            <p class = "entry">ID: </p>
-            <p class = "entry">Name: </p>
-            <p class = "entry">Address: </p>
-            <p class = "entry">Contact No.: </p>
-            <p class = "entry">Email ID: </p>
-            <a id="edit-button" href="user_info_edit.html" ><button class="btn btn-primary" style="margin-top: 100px; margin-left: 10px;">Edit</button></a>
-        </div>
-    </div>
+            <div class="container" id="doctor-info-container">
+                <h2 class="title">Hospital Info</h2>
+                <div class="profile-details">
+                    <div class="entry">
+                        <span class="entry-heading">ID</span>
+                        <span class="entry-content">HOS12345</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Hospital name</span>
+                        <span class="entry-content">Sun Hospital Pvt Ltd</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Contact no</span>
+                        <span class="entry-content">7894561234</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Email</span>
+                        <span class="entry-content">info@sunhospitals.com</span>
+                    </div>
+                    <div class="entry" id="address-field">
+                        <span class="entry-heading">Address</span>
+                        <span class="entry-content" id="address-box">Sun Hospital<br>Kanika Road,<br>Srivihar Colony,<br>Tulsipur,<br>Cuttack - 753 008,<br>Odisha</span>
+                    </div>
+                </div>
+                    <a id="edit-button" href="user_info_edit.html"><button class="btn btn-primary"
+                        style="background-color:#ffb2b2; border:none; margin-top: 25px;">Edit</button></a>
+            </div>
+        </div>    
 </body>
 </html>

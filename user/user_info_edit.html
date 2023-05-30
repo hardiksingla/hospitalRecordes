@@ -15,6 +15,7 @@
     crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/css/userpage.css">
+    <link rel="stylesheet" href="/css/infopage.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,14 +42,40 @@
 
     <div class="info-page">
         <a id="logout-button" href="/login.html"><button class="btn btn-primary">Logout</button></a>
-        <h2 class = "title">Hospital Info: </h2>
-        <br>
-        <p class = "entry">ID: </p>
-        <p class = "entry">Name: </p>
-        <p class = "entry">Address: </p>
-        <p class = "entry">Contact No.: </p>
-        <p class = "entry">Email ID: </p>
-        <a id="edit-button" href="user_info.html" ><button class="btn btn-primary" style="margin-top: 100px; margin-left: 10px;">Back</button></a>
+        <div class="container">
+            <div class="title">Edit Hospital Info</div>
+        <form action="javascript:void(0);">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">ID</span>
+                    <input type="text" name="ID" placeholder="HOS12345">
+                </div>
+                <div class="input-box">
+                    <span class="details">Hospital name</span>
+                    <input type="text" name="fname" placeholder="Sun Hospital Pvt Ltd">
+                </div>
+                <div class="input-box">
+                    <span class="details">Contact no</span>
+                <input type="tel" name="contact" placeholder="7894561234">
+                </div>
+                <div class="input-box">
+                    <span class="details">Email id</span>
+                <input type="email" name="email" placeholder="info@sunhospitals.com">
+                </div>        
+                <div class="input-box">
+                    <span class="details">Password</span>
+                <input type="password" name="pwd">
+                </div>   
+                <div class="input-box" id="diagnosis-box">
+                    <span class="diagnosis">Address</span>
+                    <textarea name="diagnosis" id="diagnosis-input" cols="30" rows="10" placeholder="Sun Hospital, Kanika Road, Srivihar Colony, Tulsipur, Cuttack - 753 008, Odisha"></textarea>
+                </div>     
+            </div> 
+            <div class="button">
+                <input type="submit" value="Save">
+            </div>      
+        </form>
+    </div>
     </div>
 </body>
 </html>

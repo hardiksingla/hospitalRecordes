@@ -1,3 +1,10 @@
+.info-page{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .info-page-doctor{
     display: flex;
     height: 100vh;
@@ -181,13 +188,13 @@ form .button input:hover{
     grid-template-columns: 1fr 1fr;
 }
 
-.profile-details .entry{
+.entry{
     display: flex;
     flex-direction: column;
     margin: 20px;
 }
 
-.profile-details .entry .entry-content{
+.entry-content{
     border-bottom: 2px solid #ffb2b2;
     height: 2rem;
     margin-top: 20px;
@@ -204,4 +211,12 @@ form .button input:hover{
 
 .profile-details::-webkit-scrollbar{
     width: 0;
+}
+
+#address-box{
+    border: 2px solid #ffb2b2;
+    height: 200px;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
 }
