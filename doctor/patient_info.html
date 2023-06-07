@@ -1,5 +1,3 @@
-<!--doctor can view his selected info entered by hospital and provides a button through which he can edit some of his info-->
-
 <!DOCTYPE html>
 <html lang="en">
 <!DOCTYPE html>
@@ -48,52 +46,52 @@
     <div class="info-page-doctor">
         <a id="logout-button" href="/login.html"><button>Logout</button></a>
         <div class="container" id="doctor-info-container">
-            <h2 class="title">Doctor Info</h2>
+            <h2 class="title">Patient Info</h2>
             <div class="profile-details">
                 <div class="small-inputs">
                     <div class="entry">
                         <span class="entry-heading">ID</span>
-                        <span class="entry-content">DR12345</span>
+                        <span class="entry-content">PT45874</span>
                     </div>
                     <div class="entry">
                         <span class="entry-heading">First name</span>
-                        <span class="entry-content">Ramesh</span>
+                        <span class="entry-content">Suneeta</span>
                     </div>
                     <div class="entry">
                         <span class="entry-heading">Last name</span>
-                        <span class="entry-content">Gupta</span>
+                        <span class="entry-content">Chaturvedi</span>
                     </div>
                     <div class="entry">
                         <span class="entry-heading">Date of birth</span>
                         <span class="entry-content">19/05/1970</span>
                     </div>
-                    <div class="entry">
-                        <span class="entry-heading">Gender</span>
-                        <span class="entry-content">Male</span>
-                    </div>
+                    
                     <div class="entry">
                         <span class="entry-heading">Contact no</span>
-                        <span class="entry-content">7894561234</span>
-                    </div>
-                    <div class="entry">
-                        <span class="entry-heading">Alternate contact no</span>
-                        <span class="entry-content">8905672345</span>
-                    </div>
-                    <div class="entry">
-                        <span class="entry-heading">Speciality</span>
-                        <span class="entry-content">Surgeon</span>
-                    </div>
-                    <div class="entry">
-                        <span class="entry-heading">Degree</span>
-                        <span class="entry-content">Master of Surgery</span>
+                        <span class="entry-content">4581254657</span>
                     </div>
                     <div class="entry">
                         <span class="entry-heading">Email</span>
-                        <span class="entry-content">guptaji@gmail.com</span>
+                        <span class="entry-content">suneetabai@gmail.com</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Gender</span>
+                        <span class="entry-content">Female</span>
                     </div>
                 </div>
+                <div class="large-inputs">
+                    <div class="input-box" id="diagnosis-box">
+                        <span class="diagnosis">Diagnosis</span>
+                        <textarea name="diagnosis" id="diagnosis-input" cols="30" rows="10" disabled placeholder="Loss of brain cells"></textarea>
+                    </div>             
+                    <div class="input-box" id="prescription-box">
+                        <span class="prescription">Prescription</span>
+                        <textarea name="prescription" id="prescription-input" cols="30" rows="10" disabled placeholder="whey protein - 30g; creatine - 5g; Trenbologne Acetate - 4 cycles (optional)"></textarea>
+                    </div>
+                </div>
+                
             </div>
-            <a id="edit-button" href="doctor_info_edit.html"><button class="btn btn-primary"
+            <a id="edit-button" href="patient_info_edit.html"><button class="btn btn-primary"
                     style="background-color:#ffb2b2; border:none; margin-top: 25px;">Edit</button></a>
         </div>
     </div>
