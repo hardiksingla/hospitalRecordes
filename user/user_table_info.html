@@ -21,11 +21,12 @@
     rel="stylesheet">
     
     <link rel="stylesheet" href="/css/userpage.css">
+    <link rel="stylesheet" href="/css/infopage.css">
 </head>
 <body>
     <div class="navbar">
         <div class="navitems">
-
+            <div class="nav-title"><h1>Medspace</h1></div>
             <a href="/userpage.html"><img src="/hospitallogo.png" alt="" height="100px"></a>
 
             <div class="navbar_username"><h2>Hospital Name</h2></div>
@@ -40,101 +41,58 @@
 
     <div class="table-page" >
         <a id="logout-button" href="/login.html"><button class="btn btn-primary">Logout</button></a>
-        <h2>Table:</h2>
-        <br>
-        <div class = "table">
-           <div style="width: 100% ;margin-left: 90%; margin-right: 0px;"><a id="edit-button" href="user_table.html" ><button class="backbut">Back</button></a></div>
-           <br>
-           <table style = "width: 90%; margin : auto; padding: 10px;">
-                <tr style="border-style: none;">
-                    <td >
-                        <label for="drID">Dr.ID</label>
-                    </td>
-                    <td>
-                        <input type="text" name="drID">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="name">Name</label>
-                    </td>
-                    <td>
-                        <input type="text" name="name">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="speciality">Speciality</label>
-                    </td>
-                    <td>
-                        <input type="text" name="Speciality">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="degree">Degree</label>
-                    </td>
-                    <td>
-                        <input type="text" name="degree">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="phone1">Contact Num.</label>
-                    </td>
-                    <td>
-                        <input type="number" name="phone1">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="phone2">Alt. Contact</label>
-                    </td>
-                    <td>
-                        <input type="number" name="phone2">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="username">Username</label>
-                    </td>
-                    <td>
-                        <input type="text" name="username">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="password">Password</label>
-                    </td>
-                    <td>
-                        <input type="text" name="password">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="dob">DOB</label>
-                    </td>
-                    <td>
-                        <input type="date" name="dob">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="gender">Gender</label>
-                    </td>
-                    <td>
-                        <input type="text" name="gender">
-                    </td>
-                </tr>
-                <tr style="border-style: none;">
-                    <td>
-                        <label for="regno">Reg. No.</label>
-                    </td>
-                    <td>
-                        <input type="text" name="regno">
-                    </td>
-                </tr>
-            </table>
+        <div class="container" id="doctor-info-container">
+            <h2 class="title">Doctor Info</h2>
+            <div class="profile-details">
+                <div class="small-inputs">
+                    <div class="entry">
+                        <span class="entry-heading">ID</span>
+                        <span class="entry-content">DR12345</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Username</span>
+                        <span class="entry-content">rameshthegoat62</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">First name</span>
+                        <span class="entry-content">Ramesh</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Last name</span>
+                        <span class="entry-content">Gupta</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Date of birth</span>
+                        <span class="entry-content">19/05/1970</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Gender</span>
+                        <span class="entry-content">Male</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Contact no</span>
+                        <span class="entry-content">7894561234</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Alternate contact no</span>
+                        <span class="entry-content">8905672345</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Speciality</span>
+                        <span class="entry-content">Surgeon</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Degree</span>
+                        <span class="entry-content">Master of Surgery</span>
+                    </div>
+                    <div class="entry">
+                        <span class="entry-heading">Email</span>
+                        <span class="entry-content">guptaji@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <a id="edit-button" href="user_table_info_edit.html"><button class="btn btn-primary"
+                    style="background-color:#ffb2b2; border:none; margin-top: 25px;">Edit</button></a>
         </div>
     </div>
 </body>

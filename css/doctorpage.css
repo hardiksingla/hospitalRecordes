@@ -10,6 +10,15 @@ body{
     top: 0;
     height: 100vh;
     background-color: #ffb2b2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.nav-title{
+    margin-bottom: 50px;
+}
+.nav-title h1{
+    font-weight: 600;
 }
 
 #logout-button{
