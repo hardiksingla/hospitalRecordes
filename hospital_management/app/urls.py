@@ -13,6 +13,7 @@ urlpatterns = [
     path("user_info/",views.user_info),
     path("user_info_edit/",views.user_info_edit),
     path("user_table_info/", views.user_table_info),
+    path("user_table_info_edit/", views.user_table_info_edit),
 
     path("doctor/",views.doctor),
     path("doctor_info_edit/",views.doctor_info_edit),

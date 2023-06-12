@@ -82,6 +82,48 @@ def user_table_info(request):
         requested = request.POST["requested"]
         curr_doc = doctorsMore.objects.filter(doctor_id = requested).first()
         return render(request,"hospital/user_table_info.html", context={"doctor": curr_doc})
+    
+def user_table_info_edit(request):
+
+    if request.method == "POST":
+        doctor = CustomUser.objects.filter(id = request.POST["id"]).first()
+        doctor_more = doctorsMore.objects.filter(doctor = doctor).first()
+        check = 0
+        if doctor.first_name != request.POST["fname"]:
+            doctor.first_name = request.POST["fname"]
+            check = 1
+        if doctor.last_name != request.POST["lname"]:
+            doctor.last_name = request.POST["lname"]
+            check = 1
+        if doctor_more.dob != request.POST["dob"]:
+            doctor_more.dob = request.POST["dob"]
+            check = 1
+        if doctor.pno != request.POST["pno"]:
+            doctor.pno = request.POST["pno"]
+            check = 1
+        if doctor_more.altpno != request.POST["altpno"]:
+            doctor_more.altpno = request.POST["altpno"]
+            check = 1
+        if doctor_more.degree != request.POST["degree"]:
+            doctor_more.degree = request.POST["degree"]
+            check = 1
+        if doctor_more.speciality != request.POST["speciality"]:
+            doctor_more.speciality = request.POST["speciality"]
+            check = 1
+        if doctor_more.gender != request.POST["gender"]:
+            doctor_more.gender = request.POST["altpno"]
+            check = 1
+
+        if check == 1:
+            doctor.save()
+            doctor_more.save()
+            return redirect("/user_table")
+        
+    doctor = CustomUser.objects.filter(id = request.GET["ID"]).first()
+    doctor_more = doctorsMore.objects.filter(doctor = doctor).first()
+    dob = doctor_more.dob.strftime('%Y-%m-%d')
+        
+    return render(request, "hospital/user_table_info_edit.html", context={"doctor": doctor, "more": doctor_more, "dob": dob})
 
 def user_table(request):
     doctors = doctorsMore.objects.filter(hospital = request.user)
