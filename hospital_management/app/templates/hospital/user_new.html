@@ -1,3 +1,4 @@
+<!--page where hospital can add new doctor-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +16,7 @@
 
     <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_new.css' %}">
+    <link rel="stylesheet" href="{% static 'css/infopage.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,75 +25,82 @@
 
 </head>
 <body>
-    <div class="navbar">
-        <div class="navitems">
-
-          <a href="/hospitalRecordes/userpage.html"><img src="/hospitalRecordes/hospitallogo.png" alt="" height="100px"></a>
-
-            <div class="navbar_username"><h2>Hospital Name</h2></div>
-
-            <ul class="navbar_contents">
-                <li><a href="/user_table">Table</a></li>
-                <li><a href="/user_new">New User</a></li>
-                <li><a href="/user_stats">Stats</a></li>
-                <li><a href="/user_info">Hospital info</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="table-page">
-        <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>
-
-    </div>
-  <h1 class="title"></h1>
-    <div>
-    <form class="newUser">
-      <div class="entry">
-        <label for="drID">Dr.ID</label>
-        <input type="text" name="drID">
-      </div>
-      <div class="entry">
-        <label for="name">Name</label>
-        <input type="text" name="name">   
-      </div>
-      <div class="entry">
-        <label for="speciality">Speciality</label>
-        <input type="text" name="speciality">
-      </div>
-      <div class="entry">
-        <label for="degree">Degree</label>
-        <input type="text" name="degree">  
-      </div>
-      <div class="entry">
-        <label for="phone1">Contact Number</label>
-        <input type="text" name="phone1">       
-      </div>
-      <div class="entry">
-      <label for="phone2">Alternate Contact number</label>
-      <input type="text" name="phone2">      
-      </div>
-      <div class="entry">
-        <label for="username">Username</label>
-        <input type="text" name="username">        
-      </div>
-      <div class="entry">
-        <label for="password">Password</label>
-        <input type="password" name="password">       
-      </div>
-      <div class="entry">
-        <label for="dob">DOB</label>
-        <input type="text" name="dob">        
-      </div>
-      <div class="entry">
-        <label for="gender">Gender</label>
-        <input type="text" name="gender">        
-      </div>
-      <div class="entry">
-        <label for="regNo">Registeration No.</label>
-        <input type="text" name="regNo">        
-      </div>
-
-    </form>
+{% include 'navbar.html' %}
+      <div class="info-page-doctor">
+        <div class="container">
+            <div class="title">New Doctor</div>
+        <form action="/user_new/" method="post">
+            {% csrf_token %}
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" name="fname">
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" name="lname">
+                </div>
+                <div class="input-box">
+                    <span class="details">Age</span>
+                <input type="number" name="age">
+                </div>
+                <div class="input-box">
+                  <span class="details">Date of birth</span>
+                  <input type="date" name="dob">
+                </div>
+                <div class="input-box">
+                    <span class="details">Contact no</span>
+                <input type="tel" name="phone1">
+                </div>
+                <div class="input-box">
+                    <span class="details">Alternate contact no</span>
+                <input type="tel" name="phone2">
+                </div>
+                <div class="input-box">
+                    <span class="details">Speciality</span>
+                <input type="text" name="speciality">
+                </div>
+                <div class="input-box">
+                    <span class="details">Degree</span>
+                <input type="text" name="degree">
+                </div>
+                <div class="input-box">
+                    <span class="details">Email id</span>
+                <input type="email" name="email">
+                </div>  
+                <div class="input-box">
+                    <span class="details">Username</span>
+                    <input type="text" name="username">
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" name="password">
+                </div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1" value="Male">
+                <input type="radio" name="gender" id="dot-2" value="Female">
+                <input type="radio" name="gender" id="dot-3" value="Transgender">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+                    <label for="dot-3">
+                        <span class="dot three"></span>
+                        <span class="gender">Transgender</span>
+                    </label>                
+                </div>            
+            </div> 
+            <div class="button">
+                <input type="submit" value="Register">
+            </div>      
+        </form>
   </div>
 
 

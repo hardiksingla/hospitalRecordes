@@ -14,6 +14,7 @@
     crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/infopage.css' %}">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,32 +23,34 @@
 
 </head>
 <body>
-    <div class="navbar">
-        <div class="navitems">
-
-            <a href="/hospitalRecordes/userpage.html"><img src="/hospitalRecordes/hospitallogo.png" alt="" height="100px"></a>
-
-            <div class="navbar_username"><h2>Hospital Name</h2></div>
-
-            <ul class="navbar_contents">
-                <li><a href="/user_table">Table</a></li>
-                <li><a href="/user_new">New User</a></li>
-                <li><a href="/user_stats">Stats</a></li>
-                <li><a href="/user_info">Hospital info</a></li>
-            </ul>
+{% include 'navbar.html' %}
+<div class="container" id="doctor-info-container">
+    <h2 class="title">Hospital Info</h2>
+    <div class="profile-details">
+        <div class="entry">
+            <span class="entry-heading">ID</span>
+            <span class="entry-content">{{hospital.hospital.id}}</span>
+        </div>
+        <div class="entry">
+            <span class="entry-heading">Hospital name</span>
+            <span class="entry-content">{{hospital.hospital.first_name}}</span>
+        </div>
+        <div class="entry">
+            <span class="entry-heading">Contact no</span>
+            <span class="entry-content">{{hospital.hospital.pno}}</span>
+        </div>
+        <div class="entry">
+            <span class="entry-heading">Email</span>
+            <span class="entry-content">{{hospital.hospital.email}}</span>
+        </div>
+        <div class="entry" id="address-field">
+            <span class="entry-heading">Address</span>
+            <span class="entry-content" id="address-box">{{hospital.address}}</span>
         </div>
     </div>
-
-    <div class="info-page">
-        <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>
-        <h2 class = "title">Hospital Info: </h2>
-        <br>
-        <p class = "entry">ID: </p>
-        <p class = "entry">Name: </p>
-        <p class = "entry">Address: </p>
-        <p class = "entry">Contact No.: </p>
-        <p class = "entry">Email ID: </p>
-        <a id="edit-button" href="" ><button class="btn btn-primary" style="margin-top: 100px; margin-left: 10px;">Edit</button></a>
-    </div>
+        <a id="edit-button" href="/user_info_edit"><button class="btn btn-primary"
+            style="background-color:#ffb2b2; border:none; margin-top: 25px;">Edit</button></a>
+</div>
+</div>    
 </body>
 </html>

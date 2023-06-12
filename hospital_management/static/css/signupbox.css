@@ -1,75 +1,75 @@
 .form_container {
-    position: fixed;
-    max-width: 640px;
-    width: 100%;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.25);
-    z-index: 101;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .input_box{
-    padding: 10px;
-    height: 50px;
-  }
+  position: fixed;
+  max-width: 640px;
+  width: 100%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.25);
+  z-index: 101;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-  .option_field{
-    padding: 10px;
-  }
+.input_box{
+  padding: 10px;
+  height: 50px;
+}
+
+.option_field{
+  padding: 10px;
+}
 
 .line1{
-    display: flex;
+  display: flex;
 }
 
 .line1 #phone1 input{
-  width: 45%;
-  position: fixed;
-  left: 25px;
+width: 45%;
+position: fixed;
+left: 25px;
 }
 #phone2 input{
-  width: 45%;
-  position: fixed;
-  right: 25px;
+width: 45%;
+position: fixed;
+right: 25px;
 }
 
 #hospital-id input{
-  width: 45%;
-  position: fixed;
-  left: 25px;
+width: 45%;
+position: fixed;
+left: 25px;
 }
 
 
 
 #large-input input{
-  width: 92.2%;
-  position: fixed;
-  left: 25px;
+width: 92.2%;
+position: fixed;
+left: 25px;
 }
 
 #hospital-address{
-  height: 100px;
-  margin-bottom: 20px
+height: 100px;
+margin-bottom: 20px
 }
 
 #hospital-address input{
-  width: 92.2%;
-  height: 100px;
-  position: fixed;
-  left: 25px;
+width: 92.2%;
+height: 100px;
+position: fixed;
+left: 25px;
 }
 
 #email input{
-  width: 45%;
-  position: fixed;
-  left: 25px;
+width: 45%;
+position: fixed;
+left: 25px;
 }
 #password input{
-  width: 45%;
-  position: fixed;
-  right: 25px;
+width: 45%;
+position: fixed;
+right: 25px;
 }

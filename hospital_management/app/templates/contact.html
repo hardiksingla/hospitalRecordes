@@ -1,10 +1,11 @@
-<!--1st page to open when opening website, enter username and password to verify user and enter-->
-{% load static %}
+<!--Simple copy of login page, contains email and phone number to contact-->
+
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
+  {% load static %}
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +16,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="{%static 'css/loginpage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,13 +29,11 @@
 <body>
   <!-- Header -->
   <nav class="navbar">
-    <div class="navitems" >
+    <div class="navitems">
       <div class="logo"><img src="{% static 'logo.png' %}" alt="Logo" class = "logo_small"></div>
       <ul id="navbarText">
-        <li><a href="/about"><button type="button" class="btn">About</button></a></li>
-        <li><a href="/contact"><button type="button" class="btn">Contact Us</button></a></li>
+        <li><a href="/login"><button type="button" class="btn">Login/SignUp</button></a></li>
       </ul>
-      <a href="/signup"><button type="button" class="btn btn-primary">Signup</button></a>
     </div>
   </nav>
 
@@ -46,28 +45,11 @@
         <i class="uil uil-times form_close"></i>
         <!-- Login From -->
         <div class="form login_form">
-          <form action="/login/" method="post">
-            {% csrf_token %}
-            <h2>Login</h2>
-  
-            <div class="input_box">
-              <input type="Username" placeholder="Username" name="username" required />
-              <i class="uil uil-envelope-alt email"></i>
-            </div>
-            <div class="input_box">
-              <input type="password" placeholder="Password" name="password" required />
-             
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-            
-            <div class="login_button"><button class="btn btn-primary">Login Now</button></div>
-            <div class="option_field">
-              <a href="#" class="forgot_pw">Forgot password?</a>
-            </div>
-  
-  
-            <div class="login_signup">Don't have an account? <a href="/signup" id="signup">Signup</a></div>
+          <form action="#">
+            <h2>Contact Us:</h2>
+            <br>
+            <p>Email: helpdesk@medspace.com</p>
+            <p>Phone Number :  XXXXXXXXXX</p>
           </form>
         </div>
       </div>

@@ -1,68 +1,70 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import auth
 from django.contrib import messages
-from .models import pno
+from .models import CustomUser, doctorsMore, patient, hospitalMore
 
-
-# Create your views here.
-def homepage(request):
-    if request.user.is_authenticated:
-        return render(request, "index.html")
-    return redirect("/login")
 
 def login(request):
 
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-        print(username,password)
         
         user = auth.authenticate(username = username, password = password)
-        print(user)
         if user is not None:
-             auth.login(request, user)
-             messages.info(request, f"Welcome, {user.username}")
-             if pno.objects.filter(user=user,isDoctor = False).values():
+            auth.login(request, user)
+            messages.info(request, f"Welcome, {user.username}")
+            print(user.type)
+            if user.type == "hospital":
                 return redirect("/userpage")
-             else:
+            else:
                 return redirect("/doctor")
             
-        elif User.objects.filter(username = username).exists():
+        elif CustomUser.objects.filter(username = username).exists():
             messages.info(request, "Password does not match")
             return redirect("/login")
         else:
             messages.info(request, "Invalid Username")
             return redirect("/login")
 
+    elif request.user.is_authenticated:
+        if request.user.type == "hospital":
+            return redirect("/userpage")
+        else:
+            return redirect("/doctor")
+        
     else:
         return render(request, "login.html")
 
 def signup(request):
     if request.method == "POST":
+        name = request.POST["name"]
+        add = request.POST["address"]
         username = request.POST['username']
-        password = request.POST['password']
-        repass = request.POST['repass']
+        password = request.POST['pass']
         email = request.POST['email']
-        number = request.POST['pno']
-        if User.objects.filter(username = username).exists():
+        pno = request.POST['pno']
+        altpno = request.POST['altpno']
+
+        if CustomUser.objects.filter(username = username).exists():
             messages.info(request, "Username exists")
             return redirect("/signup")
-        elif User.objects.filter(email = email).exists():
+        elif CustomUser.objects.filter(email = email).exists():
             messages.info(request, "Email exists")
             return redirect("/signup")
-        elif pno.objects.filter(number = number).exists() and number<10000000000 and number>-1:
+        elif CustomUser.objects.filter(pno = pno).exists():
             messages.info(request, "Phone number already registered")
             return redirect("/signup")
-        elif password != repass:
-            messages.info(request, "Passwords do not match")
+        elif hospitalMore.objects.filter(altpno = pno).exists():
+            messages.info(request, "Alternate Phone number already registered")
             return redirect("/signup")
-
-        user = User(username = username, password = password, email = email)
+        
+        user = CustomUser(username = username, email = email, pno = pno, first_name = name)
         user.set_password(password)
         user.save()
-        number = pno(user = user, number = number,isDoctor = False)
-        number.save()
+        more = hospitalMore(hospital = user, altpno = altpno, address = add)
+        more.save()
         messages.info(request, "Signup successful")
         return redirect("/login")
     else:
@@ -75,45 +77,212 @@ def logout(request):
 def userpage(request):
     return render(request,"hospital/userpage.html")
 
-def user_table(request):
-    return render(request,"hospital/user_table.html")
+def user_table_info(request):
+    if request.method == "POST":
+        requested = request.POST["requested"]
+        curr_doc = doctorsMore.objects.filter(doctor_id = requested).first()
+        return render(request,"hospital/user_table_info.html", context={"doctor": curr_doc})
 
-def user_stats(request):
-    return render(request,"hospital/user_stats.html")
+def user_table(request):
+    doctors = doctorsMore.objects.filter(hospital = request.user)
+    print(doctors)
+    return render(request,"hospital/user_table.html", context={"doctors": doctors})
 
 def user_new(request):
     if request.method == "POST":
-
-        name = request.POST["name"]
+        fname = request.POST["fname"]
+        lname = request.POST["lname"]
+        age = request.POST["age"]
+        dob = request.POST["dob"]
+        pno = request.POST["phone1"]
+        altpno = request.POST["phone2"]
         speciality = request.POST["speciality"]
         degree = request.POST["degree"]
+        email = request.POST["email"]
         username = request.POST["username"]
         password = request.POST["password"]
-        dob = request.POST["dob"]
         gender = request.POST["gender"]
-        regNo = request.POST["regNo"]
-
-        user = User(username = username, password = password, email = email)
+        
+        user = CustomUser(username = username, first_name = fname, last_name = lname, pno = pno, email = email, type = "doctor")
         user.set_password(password)
         user.save()
-        number = pno(user = user, number = number,isDoctor = True)
-        number.save()
+        more = doctorsMore(doctor = user, altpno = altpno, speciality = speciality, degree = degree, dob = dob, gender = gender, hospital = request.user)
+        more.save()
+        return redirect('/user_table')
     return render(request,"hospital/user_new.html")
 
 def user_info(request):
-    return render(request,"hospital/user_info.html")
+    hospital = hospitalMore.objects.filter(hospital = request.user).first()
+    print(hospital)
+    return render(request,"hospital/user_info.html", context = {"hospital": hospital})
+
+def user_info_edit(request):
+    hospital_more = hospitalMore.objects.filter(hospital = request.user).first()
+    hospital = hospital_more.hospital
+
+    if request.method == "POST":
+        check = 0
+        if hospital.first_name != request.POST["name"]:
+            hospital.first_name = request.POST["name"]
+            check = 1
+        if hospital.pno != request.POST["pno"]:
+            hospital.pno = request.POST["pno"]
+            check = 1
+        if hospital.email != request.POST["email"]:
+            hospital.email = request.POST["email"]
+            check = 1
+        if hospital_more.address != request.POST["address"]:
+            hospital_more.address = request.POST["address"]
+            check = 1       
+
+        password = request.POST["password"]
+        if password != "":
+            hospital.set_password(password)
+            hospital.save()
+            hospital_more.save()
+            return redirect("/login")
+        
+        if check == 1:
+            hospital.save()
+            hospital_more.save()
+        return redirect("/user_info")
+    
+    return render(request, "hospital/user_info_edit.html", context={"hospital": hospital_more})
 
 
 
 def doctor(request):
     return render(request,"doctor/doctorpage.html")
+
 def doctor_info_edit(request):
-    return render(request,"doctor/doctor_info_edit.html")
+
+    doctor_more = doctorsMore.objects.filter(doctor = request.user).first()
+    if request.method == "POST":
+        doctor = doctor_more.doctor
+
+        check = 0
+        if doctor.first_name != request.POST['fname']:
+            doctor.first_name = request.POST['fname']
+            check = 1
+        if doctor.last_name != request.POST['lname']:
+            doctor.last_name = request.POST['lname']
+            check = 1
+        if doctor.pno != request.POST['pno']:
+            doctor.pno = request.POST['pno']
+            check = 1
+        if doctor_more.altpno != request.POST['altpno']:
+            doctor_more.altpno = request.POST['altpno']
+            check = 1
+        if doctor_more.speciality != request.POST['speciality']:
+            doctor_more.speciality = request.POST['speciality']
+            check = 1
+        if doctor_more.degree != request.POST['degree']:
+            doctor_more.degree = request.POST['degree']
+            check = 1
+        if doctor.email != request.POST['email']:
+            doctor.email = request.POST['email']
+            check = 1
+        if doctor_more.gender != request.POST['gender']:
+            doctor_more.gender = request.POST['gender']
+            check = 1
+
+        password = request.POST["password"]
+        if password != "":
+            doctor.set_password(password)
+            doctor.save()
+            doctor_more.save()
+            return redirect("/login")
+        
+        if check == 1:
+            doctor.save()
+            doctor_more.save()
+        return redirect("/doctor_info")
+    
+    dob = doctor_more.dob.strftime('%Y-%m-%d')
+    return render(request, "doctor/doctor_info_edit.html", context={"doctor": doctor_more, "dob": dob})
+
 def doctor_info(request):
-    return render(request,"doctor/doctor_info.html")
+    if request.method == "POST":
+        doc_id = request.POST["requested"]
+        more_info = doctorsMore.objects.filter(doctor_id = doctor).first()
+        return render(request,"doctor/doctor_info.html", context={"more": more_info})
+
+    more_info = doctorsMore.objects.filter(doctor = request.user).first()
+    return render(request,"doctor/doctor_info.html", context={"more": more_info})
+
 def doctor_new(request):
+    if request.method == "POST":
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        dob = request.POST['age']
+        pno = request.POST['phone1']
+        email = request.POST['email']
+        gender = request.POST["gender"]
+        diagnosis = request.POST["diagnosis"]
+        pres = request.POST["prescription"]
+
+        new_patient = patient(doctor = request.user, fname = fname, lname = lname, dob = dob, pno = pno, email = email, gender = gender, diagnosis = diagnosis, prescription = pres)
+        new_patient.save()
+        return redirect('/doctor_table')
+
     return render(request,"doctor/doctor_new.html")
-def doctor_stats(request):
-    return render(request,"doctor/doctor_stats.html")
+
 def doctor_table(request):
-    return render(request,"doctor/doctor_table.html")
+    patients = patient.objects.filter(doctor = request.user)
+    print(patients)
+    return render(request,"doctor/doctor_table.html", context={"patients": patients})
+
+def patient_info(request):
+    if request.method == "POST":
+        requested = request.POST["requested"]
+        curr_patient = patient.objects.filter(id = requested).first()
+        return render(request,"doctor/patient_info.html", context={"patient": curr_patient})
+    
+def patient_info_edit(request):
+
+    if request.method == "POST":
+        print(request.user)
+        curr_patient = patient.objects.filter(id = request.POST["ID_old"]).first()
+        values = ["fname", "lname", "dob", "pno", "diagnosis", "prescription", "email", "gender"]
+        matches = {}
+        for i in values:
+            new = request.POST[i]
+            old = request.POST[i + "_old"]
+            if new != old:
+                matches[i] = new
+
+        print(matches)
+        for i in matches:
+            if i == values[0]:
+                curr_patient.fname = matches[i]
+            elif i == values[1]:
+                curr_patient.lname = matches[i]
+                print("Last name changed")
+            elif i == values[2]:
+                curr_patient.dob = matches[i]
+            elif i == values[3]:
+                curr_patient.pno = matches[i]
+            elif i == values[4]:
+                curr_patient.diagnosis = matches[i]
+            elif i == values[5]:
+                curr_patient.prescription = matches[i]
+            elif i == values[6]:
+                curr_patient.email = matches[i]
+            elif i == values[7]:
+                curr_patient.gender = matches[i]
+        
+        print(curr_patient)
+        curr_patient.save()
+        return redirect("/doctor_table")
+
+    requested = request.GET["requested"]
+    curr_patient = patient.objects.filter(id = requested).first()
+    dob = curr_patient.dob.strftime('%Y-%m-%d')
+    return render(request,"doctor/patient_info_edit.html", context={"patient": curr_patient, "dob": dob})
+
+
+def about(request):
+    return render(request, "about.html")
+
+def contact(request):
+    return render(request, "contact.html")

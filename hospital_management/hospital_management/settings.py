@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "app"
 ]
 
+AUTH_USER_MODEL = "app.CustomUser"
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -78,7 +80,7 @@ WSGI_APPLICATION = "hospital_management.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "myopd",
+        "NAME": "test",
         "USER": "root",
         "PASSWORD": "vsryarora@6879",
         "HOST": "localhost",
