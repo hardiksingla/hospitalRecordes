@@ -1,0 +1,14 @@
+{% load static %}
+<div class="navbar">
+    <div class="navitems">
+        <a href="/hospitalRecordes/doctorpage.html"><img src="{% static 'doctorlogo.png' %}" alt="" height="100px"></a>
+        <div class="navbar_username"><h2>Doctor Name</h2></div>
+        <ul class="navbar_contents">
+            <li><a href="/doctor_table">Table</a></li>
+            <li><a href="/doctor_new">New Patient</a></li>
+            <li><a href="/doctor_info">Doctor info</a></li>
+        </ul>
+    </div>
+</div>
+<div class="table-page">
+    <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>

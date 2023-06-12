@@ -27,19 +27,18 @@
 <body>
     <div class="navbar">
         <div class="navitems">
-            <a href="/doctorpage.html"><img src="/doctorlogo.png" alt="" height="100px"></a>
+            <a href="/doctorpage.html"><img src="{% static 'doctorlogo.png' %}" alt="" height="100px"></a>
             <div class="navbar_username"><h2>Doctor Name</h2></div>
             <ul class="navbar_contents">
                 <li><a href="doctor_table.html">Table</a></li>
                 <li><a href="doctor_new.html">New Patient</a></li>
-                <li><a href="doctor_stats.html">Stats</a></li>
                 <li><a href="doctor_info.html">Doctor info</a></li>
             </ul>
         </div>
     </div>
 
     <div class="info-page-doctor">
-        <a id="logout-button" href="doctor_info.html" ><button>Back</button></a>
+        <a id="logout-button" href="/doctor_info" ><button>Back</button></a>
 
         <div class="container">
             <div class="title">Edit Doctor Info</div>
@@ -47,15 +46,15 @@
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">ID</span>
-                    <input type="text" name="ID" placeholder="DR12345">
+                    <input type="text" name="ID" value="{{user.id}}">
                 </div>
                 <div class="input-box">
                     <span class="details">First name</span>
-                    <input type="text" name="fname" placeholder="Ramesh">
+                    <input type="text" name="fname" value="{{user.first_name}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Last name</span>
-                    <input type="text" name="lname" placeholder="Gupta">
+                    <input type="text" name="lname" value="{{user.last_name}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Date of birth</span>
@@ -63,33 +62,29 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Contact no</span>
-                <input type="tel" name="contact" placeholder="7894561234">
+                <input type="tel" name="contact" value="{{user.pno}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Alternate contact no</span>
-                <input type="tel" name="alt-contact" placeholder="8905672345">
+                <input type="tel" name="alt-contact" value="{{more.altpno}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Speciality</span>
-                <input type="text" name="speciality" placeholder="Surgeon">
+                <input type="text" name="speciality" value="{{more.speciality}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Degree</span>
-                <input type="text" name="degree" placeholder="Master of Surgery">
+                <input type="text" name="degree" value="{{more.degree}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Email id</span>
-                <input type="email" name="email" placeholder="drgupta@gmail.com">
-                </div>        
-                <div class="input-box">
-                    <span class="details">Password</span>
-                <input type="password" name="pwd">
+                <input type="email" name="email" value="{{user.email}}">
                 </div>        
             </div>
             <div class="gender-details">
-                <input type="radio" name="gender" id="dot-1">
-                <input type="radio" name="gender" id="dot-2">
-                <input type="radio" name="gender" id="dot-3">
+                <input type="radio" name="gender" id="dot-1" {% if patient.gender == "Male" %} checked {% endif %} value="Male">
+                <input type="radio" name="gender" id="dot-2" {% if patient.gender == "Female" %} checked {% endif %} value="Female">
+                <input type="radio" name="gender" id="dot-3" {% if patient.gender == "Transgender" %} checked {% endif %} value="Transgender">
                 <span class="gender-title">Gender</span>
                 <div class="category">
                     <label for="dot-1">

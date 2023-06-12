@@ -29,12 +29,12 @@
   <!-- Header -->
   <nav class="navbar">
     <div class="navitems" >
-      <div class="logo"><img src="logo.png" alt="Logo" class = "logo_small"></div>
+      <div class="logo"><img src="{% static 'logo.png' %}" alt="Logo" class = "logo_small"></div>
       <ul id="navbarText">
-        <li><a href="about.html"><button type="button" class="btn">About</button></a></li>
-        <li><a href="contact.html"><button type="button" class="btn">Contact Us</button></a></li>
+        <li><a href="/about"><button type="button" class="btn">About</button></a></li>
+        <li><a href="/contact"><button type="button" class="btn">Contact Us</button></a></li>
       </ul>
-      <a href="signup.html"><button type="button" class="btn btn-primary">Signup</button></a>
+      <a href="/signup"><button type="button" class="btn btn-primary">Signup</button></a>
     </div>
   </nav>
 
@@ -67,7 +67,7 @@
             </div>
   
   
-            <div class="login_signup">D'ont have an account? <a href="signup.html" id="signup">Signup</a></div>
+            <div class="login_signup">Don't have an account? <a href="/signup" id="signup">Signup</a></div>
           </form>
         </div>
       </div>

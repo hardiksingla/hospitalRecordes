@@ -1,0 +1,16 @@
+{% load static %}
+
+<div class="navbar">
+    <div class="navitems">
+        <a href="/hospitalRecordes/userpage.html"><img src="{% static 'hospitallogo.png' %}" alt="" height="100px"></a>
+        <div class="navbar_username"><h2>{{user.first_name}}</h2></div>
+        <ul class="navbar_contents">
+            <li><a href="/user_table">Table</a></li>
+            <li><a href="/user_new">New User</a></li>
+            <li><a href="/user_info">Hospital info</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="table-page" >
+    <a id="logout-button" href="/logout"><button class="btn btn-primary">Logout</button></a>

@@ -5,6 +5,7 @@
 <html lang="en">
 
 <head>
+  {% load static %}
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +16,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="css/loginpage.css">
+  <link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,9 +30,9 @@
   <!-- Header -->
   <nav class="navbar">
     <div class="navitems">
-      <div class="logo"><img src="logo.png" alt="Logo" class = "logo_small"></div>
+      <div class="logo"><img src="{% static 'logo.png' %}" alt="Logo" class = "logo_small"></div>
       <ul id="navbarText">
-        <li><a href="login.html"><button type="button" class="btn">Login/SignUp</button></a></li>
+        <li><a href="/login"><button type="button" class="btn">Login/SignUp</button></a></li>
       </ul>
     </div>
   </nav>
@@ -47,8 +48,8 @@
           <form action="#">
             <h2>Contact Us:</h2>
             <br>
-            <p>Email : dekhajayega@gmail.com</p>
-            <p>Phone Number :  011-23012312</p>
+            <p>Email: helpdesk@medspace.com</p>
+            <p>Phone Number :  XXXXXXXXXX</p>
           </form>
         </div>
       </div>

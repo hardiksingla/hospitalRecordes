@@ -25,24 +25,7 @@
 
 </head>
 <body>
-    <div class="navbar">
-        <div class="navitems">
-
-          <a href="/userpage.html"><img src="/hospitallogo.png" alt="" height="100px"></a>
-
-            <div class="navbar_username"><h2>Hospital Name</h2></div>
-
-            <ul class="navbar_contents">
-                <li><a href="user_table.html">Table</a></li>
-                <li><a href="user_new.html">New User</a></li>
-                <li><a href="user_stats.html">Stats</a></li>
-                <li><a href="user_info.html">Hospital info</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="table-page" >
-      <a id="logout-button" href="/login.html"><button class="btn btn-primary">Logout</button></a>
+{% include 'navbar.html' %}
       <div class="info-page-doctor">
         <div class="container">
             <div class="title">New Doctor</div>
@@ -50,15 +33,19 @@
             {% csrf_token %}
             <div class="user-details">
                 <div class="input-box">
-                    <span class="details">Name</span>
-                    <input type="text" name="name">
+                    <span class="details">First Name</span>
+                    <input type="text" name="fname">
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" name="lname">
                 </div>
                 <div class="input-box">
                     <span class="details">Age</span>
                 <input type="number" name="age">
                 </div>
                 <div class="input-box">
-                  <span class="details">DOB</span>
+                  <span class="details">Date of birth</span>
                   <input type="date" name="dob">
                 </div>
                 <div class="input-box">
@@ -91,9 +78,9 @@
                 </div>
             </div>
             <div class="gender-details">
-                <input type="radio" name="gender" id="dot-1">
-                <input type="radio" name="gender" id="dot-2">
-                <input type="radio" name="gender" id="dot-3">
+                <input type="radio" name="gender" id="dot-1" value="Male">
+                <input type="radio" name="gender" id="dot-2" value="Female">
+                <input type="radio" name="gender" id="dot-3" value="Transgender">
                 <span class="gender-title">Gender</span>
                 <div class="category">
                     <label for="dot-1">
@@ -104,7 +91,7 @@
                         <span class="dot two"></span>
                         <span class="gender">Female</span>
                     </label>
-                    <label for="dot-3"> <span class="gender-title">Gender</span>
+                    <label for="dot-3">
                         <span class="dot three"></span>
                         <span class="gender">Transgender</span>
                     </label>                

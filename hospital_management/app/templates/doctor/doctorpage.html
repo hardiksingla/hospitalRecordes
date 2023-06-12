@@ -23,20 +23,7 @@
 
 </head>
 <body>
-    <div class="navbar">
-        <div class="navitems">
-            <a href="/hospitalRecordes/doctorpage.html"><img src="doctorlogo.png" alt="" height="100px"></a>
-            <div class="navbar_username"><h2>Doctor Name</h2></div>
-            <ul class="navbar_contents">
-                <li><a href="doctor/doctor_table.html">Table</a></li>
-                <li><a href="doctor/doctor_new.html">New Patient</a></li>
-                <li><a href="doctor/doctor_stats.html">Stats</a></li>
-                <li><a href="doctor/doctor_info.html">Doctor info</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="table-page">
-        <a id="logout-button" href="login.html"><button class="btn btn-primary">Logout</button></a>
+    {% include 'docnav.html' %}
     </div>
 </body>
 </html>

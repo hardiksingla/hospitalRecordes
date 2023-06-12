@@ -12,6 +12,13 @@ body{
     background-color: #fff8e1;
 }
 
+.nav-title{
+    margin-bottom: 50px;
+}
+.nav-title h1{
+    font-weight: 600;
+}
+
 #logout-button{
     position: absolute;
     right: 10px;
