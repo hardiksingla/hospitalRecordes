@@ -42,7 +42,7 @@ def signup(request):
         name = request.POST["name"]
         add = request.POST["address"]
         username = request.POST['username']
-        password = request.POST['password']
+        password = request.POST['pass']
         email = request.POST['email']
         pno = request.POST['pno']
         altpno = request.POST['altpno']
@@ -63,7 +63,8 @@ def signup(request):
         user = CustomUser(username = username, email = email, pno = pno, first_name = name)
         user.set_password(password)
         user.save()
-        more = hospitalMore(altpno = altpno, address = add)
+        more = hospitalMore(hospital = user, altpno = altpno, address = add)
+        more.save()
         messages.info(request, "Signup successful")
         return redirect("/login")
     else:
@@ -105,15 +106,50 @@ def user_new(request):
         user = CustomUser(username = username, first_name = fname, last_name = lname, pno = pno, email = email, type = "doctor")
         user.set_password(password)
         user.save()
-        more = doctorsMore(doctor = user, altpno = altpno, speciality = speciality, degree = degree, dob = dob, gender = gender)
+        more = doctorsMore(doctor = user, altpno = altpno, speciality = speciality, degree = degree, dob = dob, gender = gender, hospital = request.user)
         more.save()
-        return redirect('/user_new')
+        return redirect('/user_table')
     return render(request,"hospital/user_new.html")
 
 def user_info(request):
     hospital = hospitalMore.objects.filter(hospital = request.user).first()
     print(hospital)
     return render(request,"hospital/user_info.html", context = {"hospital": hospital})
+
+def user_info_edit(request):
+    hospital_more = hospitalMore.objects.filter(hospital = request.user).first()
+    hospital = hospital_more.hospital
+
+    if request.method == "POST":
+        check = 0
+        if hospital.first_name != request.POST["name"]:
+            hospital.first_name = request.POST["name"]
+            check = 1
+        if hospital.pno != request.POST["pno"]:
+            hospital.pno = request.POST["pno"]
+            check = 1
+        if hospital.email != request.POST["email"]:
+            hospital.email = request.POST["email"]
+            check = 1
+        if hospital_more.address != request.POST["address"]:
+            hospital_more.address = request.POST["address"]
+            check = 1       
+
+        password = request.POST["password"]
+        if password != "":
+            hospital.set_password(password)
+            hospital.save()
+            hospital_more.save()
+            return redirect("/login")
+        
+        if check == 1:
+            hospital.save()
+            hospital_more.save()
+            return redirect("/user_info")
+        
+        return redirect("/user_info")
+    
+    return render(request, "hospital/user_info_edit.html", context={"hospital": hospital_more})
 
 
 

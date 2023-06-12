@@ -11,6 +11,7 @@ urlpatterns = [
     path("user_table/",views.user_table),
     path("user_new/",views.user_new),
     path("user_info/",views.user_info),
+    path("user_info_edit/",views.user_info_edit),
     path("user_table_info/", views.user_table_info),
 
     path("doctor/",views.doctor),

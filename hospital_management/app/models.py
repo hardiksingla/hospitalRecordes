@@ -15,7 +15,6 @@ class CustomUser(AbstractUser):
 class hospitalMore(models.Model):
     hospital = models.OneToOneField(CustomUser, on_delete=models.CASCADE, null=True)
     address = models.TextField(null=True)
-    regID = models.CharField(max_length=100)
     altpno = models.CharField(max_length=10, null=True)
 
 class doctorsMore(models.Model):

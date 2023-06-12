@@ -45,7 +45,8 @@
       <i class="uil uil-times form_close"></i>
       <!-- Login From -->
       <div class="form login_form">
-        <form action="#">
+        <form action="/signup" method="post">
+          {% csrf_token %}
           <h2>Register</h2>
           <div class="input_box" id="large-input">
             <input type="name" placeholder="Hospital name" required name="name">
