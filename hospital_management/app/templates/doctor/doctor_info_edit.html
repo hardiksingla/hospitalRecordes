@@ -27,12 +27,12 @@
 <body>
     <div class="navbar">
         <div class="navitems">
-            <a href="/doctorpage.html"><img src="{% static 'doctorlogo.png' %}" alt="" height="100px"></a>
+            <a href="/doctorpage"><img src="{% static 'doctorlogo.png' %}" alt="" height="100px"></a>
             <div class="navbar_username"><h2>Doctor Name</h2></div>
             <ul class="navbar_contents">
-                <li><a href="doctor_table.html">Table</a></li>
-                <li><a href="doctor_new.html">New Patient</a></li>
-                <li><a href="doctor_info.html">Doctor info</a></li>
+                <li><a href="/doctor_table">Table</a></li>
+                <li><a href="/doctor_new">New Patient</a></li>
+                <li><a href="/doctor_info">Doctor info</a></li>
             </ul>
         </div>
     </div>
@@ -42,11 +42,12 @@
 
         <div class="container">
             <div class="title">Edit Doctor Info</div>
-        <form action="javascript:void(0);">
+        <form action="/doctor_info_edit/" method="post">
+            {% csrf_token %}
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">ID</span>
-                    <input type="text" name="ID" value="{{user.id}}">
+                    <input type="text" name="ID" value="{{user.id}}" disabled>
                 </div>
                 <div class="input-box">
                     <span class="details">First name</span>
@@ -58,33 +59,41 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Date of birth</span>
-                <input type="date" name="age">
+                <input type="date" name="dob" value="{{dob}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Contact no</span>
-                <input type="tel" name="contact" value="{{user.pno}}">
+                <input type="tel" name="pno" value="{{user.pno}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Alternate contact no</span>
-                <input type="tel" name="alt-contact" value="{{more.altpno}}">
+                <input type="tel" name="altpno" value="{{doctor.altpno}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Speciality</span>
-                <input type="text" name="speciality" value="{{more.speciality}}">
+                <input type="text" name="speciality" value="{{doctor.speciality}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Degree</span>
-                <input type="text" name="degree" value="{{more.degree}}">
+                <input type="text" name="degree" value="{{doctor.degree}}">
                 </div>
                 <div class="input-box">
                     <span class="details">Email id</span>
                 <input type="email" name="email" value="{{user.email}}">
-                </div>        
+                </div>
+                <div class="input-box">
+                    <span class="details">username</span>
+                <input type="text" name="username" value="{{user.username}}">
+                </div>    
+                <div class="input-box">
+                    <span class="details">Password</span>
+                <input type="password" name="password" placeholder="Leave blank for no change">
+                </div>      
             </div>
             <div class="gender-details">
-                <input type="radio" name="gender" id="dot-1" {% if patient.gender == "Male" %} checked {% endif %} value="Male">
-                <input type="radio" name="gender" id="dot-2" {% if patient.gender == "Female" %} checked {% endif %} value="Female">
-                <input type="radio" name="gender" id="dot-3" {% if patient.gender == "Transgender" %} checked {% endif %} value="Transgender">
+                <input type="radio" name="gender" id="dot-1" {% if doctor.gender == "Male" %} checked {% endif %} value="Male">
+                <input type="radio" name="gender" id="dot-2" {% if doctor.gender == "Female" %} checked {% endif %} value="Female">
+                <input type="radio" name="gender" id="dot-3" {% if doctor.gender == "Transgender" %} checked {% endif %} value="Transgender">
                 <span class="gender-title">Gender</span>
                 <div class="category">
                     <label for="dot-1">

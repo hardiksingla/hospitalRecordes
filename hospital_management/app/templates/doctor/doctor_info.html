@@ -29,22 +29,7 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="navitems">
-            <a href="/doctorpage.html"><img src="{% static 'doctorlogo.png' %}" alt="" height="100px"></a>
-            <div class="navbar_username">
-                <h2>Doctor Name</h2>
-            </div>
-            <ul class="navbar_contents">
-                <li><a href="doctor_table.html">Table</a></li>
-                <li><a href="doctor_new.html">New Patient</a></li>
-                <li><a href="doctor_info.html">Doctor info</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="info-page-doctor">
-        <a id="logout-button" href="/logout"><button>Logout</button></a>
+{% include 'docnav.html' %}
         <div class="container" id="doctor-info-container">
             <h2 class="title">Doctor Info</h2>
             <div class="profile-details">
