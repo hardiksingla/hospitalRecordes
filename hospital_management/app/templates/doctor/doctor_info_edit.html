@@ -25,17 +25,7 @@
 
 </head>
 <body>
-    <div class="navbar">
-        <div class="navitems">
-            <a href="/doctorpage"><img src="{% static 'doctorlogo.png' %}" alt="" height="100px"></a>
-            <div class="navbar_username"><h2>Doctor Name</h2></div>
-            <ul class="navbar_contents">
-                <li><a href="/doctor_table">Table</a></li>
-                <li><a href="/doctor_new">New Patient</a></li>
-                <li><a href="/doctor_info">Doctor info</a></li>
-            </ul>
-        </div>
-    </div>
+{% include 'docnav.html' %}
 
     <div class="info-page-doctor">
         <a id="logout-button" href="/doctor_info" ><button>Back</button></a>

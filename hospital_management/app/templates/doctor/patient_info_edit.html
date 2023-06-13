@@ -29,14 +29,15 @@
 <body>
     <div class="navbar">
         <div class="navitems">
-            <a href="/doctorpage.html"><img src="/doctorlogo.png" alt="" height="100px"></a>
+            <div class="nav-title"><h1>Medspace</h1></div>
+            <a href="/doctorpage.html"><img src="{% static '/doctorlogo.png' %}" alt="" height="100px"></a>
             <div class="navbar_username">
-                <h2>Doctor Name</h2>
+                <h2>{{user.first_name}} {{user.last_name}}</h2>
             </div>
             <ul class="navbar_contents">
-                <li><a href="doctor_table.html">Table</a></li>
-                <li><a href="doctor_new.html">New Patient</a></li>
-                <li><a href="doctor_info.html">Doctor info</a></li>
+                <li><a href="/doctor_table">Table</a></li>
+                <li><a href="/doctor_new">New Patient</a></li>
+                <li><a href="/doctor_info">Doctor info</a></li>
             </ul>
         </div>
     </div>
