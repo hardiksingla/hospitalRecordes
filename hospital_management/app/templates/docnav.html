@@ -1,8 +1,9 @@
 {% load static %}
 <div class="navbar">
+    <div class="nav-title"><h1>Medspace</h1></div>
     <div class="navitems">
         <a href="/hospitalRecordes/doctorpage.html"><img src="{% static 'doctorlogo.png' %}" alt="" height="100px"></a>
-        <div class="navbar_username"><h2>Doctor Name</h2></div>
+        <div class="navbar_username"><h2>{{user.first_name}} {{user.last_name}}</h2></div>
         <ul class="navbar_contents">
             <li><a href="/doctor_table">Table</a></li>
             <li><a href="/doctor_new">New Patient</a></li>
