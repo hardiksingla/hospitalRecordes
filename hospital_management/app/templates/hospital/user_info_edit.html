@@ -25,21 +25,7 @@
 
 </head>
 <body>
-    <div class="navbar">
-        <div class="navitems">
-            <div class="nav-title"><h1>Medspace</h1></div>
-            <a href="/userpage.html"><img src="/hospitallogo.png" alt="" height="100px"></a>
-
-            <div class="navbar_username"><h2>Hospital Name</h2></div>
-
-            <ul class="navbar_contents">
-                <li><a href="/user_table">Table</a></li>
-                <li><a href="/user_new">New User</a></li>
-                <li><a href="/user_info">Hospital info</a></li>
-            </ul>
-        </div>
-    </div>
-
+{% include 'navbar.html'%}
     <div class="info-page">
         <a id="logout-button" href="/user_info"><button class="btn btn-primary">Back</button></a>
         <div class="container">

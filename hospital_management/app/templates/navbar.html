@@ -1,7 +1,10 @@
 {% load static %}
 
+
+
 <div class="navbar">
-    <div class="navitems">
+    <div class="nav-title" style="margin-bottom: -200px; margin-left: 30px;"><h1>Medspace</h1></div>
+    <div class="navitems" style="margin-left: 15px;">
         <a href="/hospitalRecordes/userpage.html"><img src="{% static 'hospitallogo.png' %}" alt="" height="100px"></a>
         <div class="navbar_username"><h2>{{user.first_name}}</h2></div>
         <ul class="navbar_contents">
